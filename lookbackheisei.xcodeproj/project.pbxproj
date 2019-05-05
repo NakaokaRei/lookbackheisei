@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63821093668E05F7B922B4AF /* Pods_lookbackheisei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 601435F472DC821B0A1DF61D /* Pods_lookbackheisei.framework */; };
+		B115B248227EE52700B9A81F /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B115B247227EE52700B9A81F /* AboutViewController.swift */; };
 		B1800895227DC92800C3B922 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1800894227DC92800C3B922 /* AppDelegate.swift */; };
 		B1800897227DC92800C3B922 /* HeiseiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1800896227DC92800C3B922 /* HeiseiViewController.swift */; };
 		B180089A227DC92800C3B922 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1800898227DC92800C3B922 /* Main.storyboard */; };
@@ -18,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		601435F472DC821B0A1DF61D /* Pods_lookbackheisei.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lookbackheisei.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FBB768CE274424E63821D8B /* Pods-lookbackheisei.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lookbackheisei.debug.xcconfig"; path = "Target Support Files/Pods-lookbackheisei/Pods-lookbackheisei.debug.xcconfig"; sourceTree = "<group>"; };
+		B115B247227EE52700B9A81F /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		B1800891227DC92800C3B922 /* lookbackheisei.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lookbackheisei.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1800894227DC92800C3B922 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1800896227DC92800C3B922 /* HeiseiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeiseiViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +33,7 @@
 		B1934046227DE00B0004B5A3 /* PageMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageMenuView.swift; path = "../../../../Downloads/pageMenuView-master/PageMenuView/PageMenuView.swift"; sourceTree = "<group>"; };
 		B1934048227DE24F0004B5A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B1F86AA5227DEC2F00E1D66A /* SensorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorViewController.swift; sourceTree = "<group>"; };
+		D29C3B726CDEE2E1D4C6525D /* Pods-lookbackheisei.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lookbackheisei.release.xcconfig"; path = "Target Support Files/Pods-lookbackheisei/Pods-lookbackheisei.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63821093668E05F7B922B4AF /* Pods_lookbackheisei.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +53,8 @@
 			children = (
 				B1800893227DC92800C3B922 /* lookbackheisei */,
 				B1800892227DC92800C3B922 /* Products */,
+				E3E6B36B95359572E77C6047 /* Pods */,
+				D9A7D4134E0AD91214D885EC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +73,7 @@
 				B1934046227DE00B0004B5A3 /* PageMenuView.swift */,
 				B1800896227DC92800C3B922 /* HeiseiViewController.swift */,
 				B1934048227DE24F0004B5A3 /* ViewController.swift */,
+				B115B247227EE52700B9A81F /* AboutViewController.swift */,
 				B1800898227DC92800C3B922 /* Main.storyboard */,
 				B1F86AA5227DEC2F00E1D66A /* SensorViewController.swift */,
 				B180089B227DC92900C3B922 /* Assets.xcassets */,
@@ -73,6 +83,23 @@
 			path = lookbackheisei;
 			sourceTree = "<group>";
 		};
+		D9A7D4134E0AD91214D885EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				601435F472DC821B0A1DF61D /* Pods_lookbackheisei.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3E6B36B95359572E77C6047 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7FBB768CE274424E63821D8B /* Pods-lookbackheisei.debug.xcconfig */,
+				D29C3B726CDEE2E1D4C6525D /* Pods-lookbackheisei.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B18008A3227DC92900C3B922 /* Build configuration list for PBXNativeTarget "lookbackheisei" */;
 			buildPhases = (
+				BB6DB9685D5CA59966842A15 /* [CP] Check Pods Manifest.lock */,
 				B180088D227DC92800C3B922 /* Sources */,
 				B180088E227DC92800C3B922 /* Frameworks */,
 				B180088F227DC92800C3B922 /* Resources */,
+				3504408F7A6A68B21C502151 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,11 +168,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3504408F7A6A68B21C502151 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-lookbackheisei/Pods-lookbackheisei-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lookbackheisei/Pods-lookbackheisei-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB6DB9685D5CA59966842A15 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lookbackheisei-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B180088D227DC92800C3B922 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B115B248227EE52700B9A81F /* AboutViewController.swift in Sources */,
 				B1F86AA6227DEC2F00E1D66A /* SensorViewController.swift in Sources */,
 				B1800897227DC92800C3B922 /* HeiseiViewController.swift in Sources */,
 				B1934047227DE00B0004B5A3 /* PageMenuView.swift in Sources */,
@@ -292,6 +371,7 @@
 		};
 		B18008A4227DC92900C3B922 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FBB768CE274424E63821D8B /* Pods-lookbackheisei.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -303,13 +383,14 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.reideeplearning.lookbackheisei;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		B18008A5227DC92900C3B922 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D29C3B726CDEE2E1D4C6525D /* Pods-lookbackheisei.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -321,7 +402,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.reideeplearning.lookbackheisei;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

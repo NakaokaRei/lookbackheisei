@@ -8,30 +8,58 @@
 
 import UIKit
 import CoreMotion
+import SocketIO
 
 class SensorViewController: UIViewController {
     @IBOutlet weak var acc_x: UILabel!
     @IBOutlet weak var acc_y: UILabel!
     @IBOutlet weak var acc_z: UILabel!
+    @IBOutlet weak var gyro_x: UILabel!
+    @IBOutlet weak var gyro_y: UILabel!
+    @IBOutlet weak var gyro_z: UILabel!
+    
+    var manager: SocketManager!
+    var socket: SocketIOClient!
+    
+    
+    @IBAction func newsEmit(_ sender: Any) {
+        self.socket.emit("my_broadcast_event", ["event": "news"])
+    }
+    
+    @IBAction func twitterEmit(_ sender: Any) {
+        self.socket.emit("my_broadcast_event", ["event": "twitter"])
+    }
+    
+    @IBAction func reiwaEmit(_ sender: Any) {
+        self.socket.emit("my_broadcast_event", ["event": "reiwa"])
+    }
     
     let motionManager = CMMotionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.manager = SocketManager(socketURL: URL(string: "https://look-back-heisei.herokuapp.com")!, config: [.log(true), .compress])
+        self.socket = self.manager.socket(forNamespace: "/test")
+        
+        self.socket.connect()
 
         // Do any additional setup after loading the view.
-        if motionManager.isAccelerometerAvailable {
-            // intervalの設定 [sec]
-            motionManager.accelerometerUpdateInterval = 0.2
+        motionManager.deviceMotionUpdateInterval = 0.05
+        
+        // Start motion data acquisition
+        motionManager.startDeviceMotionUpdates( to: OperationQueue.current!, withHandler:{
+            deviceManager, error in
+            let accel: CMAcceleration = deviceManager!.userAcceleration
+            self.acc_x.text = String(format: "%.2f", accel.x)
+            self.acc_y.text = String(format: "%.2f", accel.y)
+            self.acc_z.text = String(format: "%.2f", accel.z)
             
-            // センサー値の取得開始
-            motionManager.startAccelerometerUpdates(
-                to: OperationQueue.current!,
-                withHandler: {(accelData: CMAccelerometerData?, errorOC: Error?) in
-                    self.outputAccelData(acceleration: accelData!.acceleration)
-            })
-            
-        }
+            let gyro: CMRotationRate = deviceManager!.rotationRate
+            self.gyro_x.text = String(format: "%.2f", gyro.x)
+            self.gyro_y.text = String(format: "%.2f", gyro.y)
+            self.gyro_z.text = String(format: "%.2f", gyro.z)
+        })
     }
     
     func outputAccelData(acceleration: CMAcceleration){

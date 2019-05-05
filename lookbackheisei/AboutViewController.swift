@@ -1,14 +1,14 @@
 //
-//  ViewController.swift
+//  AboutViewController.swift
 //  lookbackheisei
 //
-//  Created by 中岡黎 on 2019/05/04.
+//  Created by 中岡黎 on 2019/05/05.
 //  Copyright © 2019 NakaokaRei. All rights reserved.
 //
 
 import UIKit
 import WebKit
-class HeiseiViewController: UIViewController, WKUIDelegate {
+class AboutViewController: UIViewController, WKUIDelegate {
     
     var webView: WKWebView!
     
@@ -22,11 +22,11 @@ class HeiseiViewController: UIViewController, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let myURL = URL(string: "https://look-back-heisei.herokuapp.com/helloios")
+        let myURL = URL(string: "https://look-back-heisei.herokuapp.com/aboutios")
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
     }
-
+    
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         
         // リンクの適性をチェック
@@ -49,4 +49,3 @@ class HeiseiViewController: UIViewController, WKUIDelegate {
     }
     
 }
-
