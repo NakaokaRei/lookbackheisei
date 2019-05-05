@@ -21,6 +21,7 @@ class HeiseiViewController: UIViewController, WKUIDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        WKWebsiteDataStore.default().removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), modifiedSince: Date(timeIntervalSince1970: 0), completionHandler: {})
         
         let myURL = URL(string: "https://look-back-heisei.herokuapp.com/helloios")
         let myRequest = URLRequest(url: myURL!)
