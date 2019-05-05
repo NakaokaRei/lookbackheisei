@@ -39,7 +39,7 @@ class SensorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.manager = SocketManager(socketURL: URL(string: "https://look-back-heisei.herokuapp.com")!, config: [.log(true), .compress])
+        self.manager = SocketManager(socketURL: URL(string: "https://look-back-heisei.herokuapp.com")!, config: [.log(true), .forceWebsockets(true), .forcePolling(true)])
         self.socket = self.manager.socket(forNamespace: "/test")
         
         self.socket.connect()
