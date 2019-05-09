@@ -20,7 +20,7 @@ class SensorViewController: UIViewController {
     
     var manager: SocketManager!
     var socket: SocketIOClient!
-    
+    let motionManager = CMMotionManager()
     
     @IBAction func newsEmit(_ sender: Any) {
         self.socket.emit("my_broadcast_event", ["event": "news"])
@@ -34,14 +34,11 @@ class SensorViewController: UIViewController {
         self.socket.emit("my_broadcast_event", ["event": "reiwa"])
     }
     
-    let motionManager = CMMotionManager()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.manager = SocketManager(socketURL: URL(string: "https://look-back-heisei.herokuapp.com")!, config: [.log(true), .forceWebsockets(true), .forcePolling(true)])
         self.socket = self.manager.socket(forNamespace: "/test")
-        
         self.socket.connect()
 
         // Do any additional setup after loading the view.
@@ -60,13 +57,6 @@ class SensorViewController: UIViewController {
             self.gyro_y.text = String(format: "%.2f", gyro.y)
             self.gyro_z.text = String(format: "%.2f", gyro.z)
         })
-    }
-    
-    func outputAccelData(acceleration: CMAcceleration){
-        // 加速度センサー [G]
-        acc_x.text = String(format: "%06f", acceleration.x)
-        acc_y.text = String(format: "%06f", acceleration.y)
-        acc_z.text = String(format: "%06f", acceleration.z)
     }
     
     // センサー取得を止める場合
