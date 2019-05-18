@@ -11,9 +11,6 @@ import CoreMotion
 import SocketIO
 
 class SensorViewController: UIViewController {
-    @IBOutlet weak var acc_x: UILabel!
-    @IBOutlet weak var acc_y: UILabel!
-    @IBOutlet weak var acc_z: UILabel!
     @IBOutlet weak var gyro_x: UILabel!
     @IBOutlet weak var gyro_y: UILabel!
     @IBOutlet weak var gyro_z: UILabel!
@@ -46,12 +43,7 @@ class SensorViewController: UIViewController {
         
         // Start motion data acquisition
         motionManager.startDeviceMotionUpdates( to: OperationQueue.current!, withHandler:{
-            deviceManager, error in
-            let accel: CMAcceleration = deviceManager!.userAcceleration
-            self.acc_x.text = String(format: "%.2f", accel.x)
-            self.acc_y.text = String(format: "%.2f", accel.y)
-            self.acc_z.text = String(format: "%.2f", accel.z)
-            
+            deviceManager, error in            
             let gyro: CMRotationRate = deviceManager!.rotationRate
             self.gyro_x.text = String(format: "%.2f", gyro.x)
             self.gyro_y.text = String(format: "%.2f", gyro.y)
