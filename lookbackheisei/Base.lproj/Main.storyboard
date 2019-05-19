@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxq-aJ-3pA" userLabel="news">
-                                <rect key="frame" x="63" y="74" width="36" height="30"/>
+                                <rect key="frame" x="63" y="43" width="36" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="news"/>
                                 <connections>
@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISg-EO-050" userLabel="twitter">
-                                <rect key="frame" x="185" y="74" width="45" height="30"/>
+                                <rect key="frame" x="185" y="45" width="45" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="twitter"/>
                                 <connections>
@@ -50,7 +50,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0m4-0p-xVV" userLabel="reiwa">
-                                <rect key="frame" x="318" y="74" width="37" height="30"/>
+                                <rect key="frame" x="318" y="45" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="reiwa"/>
                                 <connections>
@@ -106,14 +106,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4g-lT-Fh8">
+                                <rect key="frame" x="186" y="183" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heisei" translatesAutoresizingMaskIntoConstraints="NO" id="js0-kq-AvC">
+                                <rect key="frame" x="20" y="79" width="374" height="679"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="1V6-Uo-nIV"/>
                     </view>
                     <connections>
+                        <outlet property="degreeLabel" destination="o4g-lT-Fh8" id="vYD-rf-zmC"/>
                         <outlet property="gyro_x" destination="U6n-te-BOj" id="3CQ-Pn-3lR"/>
                         <outlet property="gyro_y" destination="sWP-5T-LF2" id="vdb-52-3iN"/>
                         <outlet property="gyro_z" destination="E3u-B3-ehC" id="dEa-4C-lhx"/>
+                        <outlet property="imageGame" destination="js0-kq-AvC" id="zi4-kN-cwe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nz3-9N-R5o" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -121,4 +134,7 @@
             <point key="canvasLocation" x="969.56521739130437" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="heisei" width="429" height="727"/>
+    </resources>
 </document>

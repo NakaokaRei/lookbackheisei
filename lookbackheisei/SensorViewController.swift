@@ -14,6 +14,9 @@ class SensorViewController: UIViewController {
     @IBOutlet weak var gyro_x: UILabel!
     @IBOutlet weak var gyro_y: UILabel!
     @IBOutlet weak var gyro_z: UILabel!
+    @IBOutlet weak var degreeLabel: UILabel!
+    @IBOutlet weak var imageGame: UIImageView!
+    var degree:Double! = 0
     
     var manager: SocketManager!
     var socket: SocketIOClient!
@@ -39,7 +42,7 @@ class SensorViewController: UIViewController {
         self.socket.connect()
 
         // Do any additional setup after loading the view.
-        motionManager.deviceMotionUpdateInterval = 0.05
+        motionManager.deviceMotionUpdateInterval = 0.1
         
         // Start motion data acquisition
         motionManager.startDeviceMotionUpdates( to: OperationQueue.current!, withHandler:{
@@ -48,6 +51,7 @@ class SensorViewController: UIViewController {
             self.gyro_x.text = String(format: "%.2f", gyro.x)
             self.gyro_y.text = String(format: "%.2f", gyro.y)
             self.gyro_z.text = String(format: "%.2f", gyro.z)
+            self.loop(angular: gyro.y)
         })
     }
     
@@ -55,6 +59,21 @@ class SensorViewController: UIViewController {
     func stopAccelerometer(){
         if (motionManager.isAccelerometerActive) {
             motionManager.stopAccelerometerUpdates()
+        }
+        
+    }
+    
+    func loop(angular: Double){
+        self.degreeLabel.text = String(self.degree)
+        self.degree += angular * 0.1 * 57.2
+        if self.degree >= 90{
+            self.socket.emit("my_broadcast_event", ["event": "news"])
+            self.imageGame.image = UIImage(named: "left")
+            self.degree = 0
+        } else if -self.degree >= 90{
+            self.socket.emit("my_broadcast_event", ["event": "twitter"])
+            self.imageGame.image = UIImage(named: "right")
+            self.degree = 0
         }
     }
     
