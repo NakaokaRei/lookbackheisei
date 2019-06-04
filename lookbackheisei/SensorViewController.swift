@@ -11,10 +11,9 @@ import CoreMotion
 import SocketIO
 
 class SensorViewController: UIViewController {
-    @IBOutlet weak var gyro_x: UILabel!
-    @IBOutlet weak var gyro_y: UILabel!
-    @IBOutlet weak var gyro_z: UILabel!
-    @IBOutlet weak var degreeLabel: UILabel!
+    var gyro_x: Double!
+    var gyro_y: Double!
+    var gyro_z: Double!
     @IBOutlet weak var imageGame: UIImageView!
     var degree:Double! = 0
     
@@ -22,15 +21,15 @@ class SensorViewController: UIViewController {
     var socket: SocketIOClient!
     let motionManager = CMMotionManager()
     
-    @IBAction func newsEmit(_ sender: Any) {
+    func newsEmit(_ sender: Any) {
         self.socket.emit("my_broadcast_event", ["event": "news"])
     }
     
-    @IBAction func twitterEmit(_ sender: Any) {
+    func twitterEmit(_ sender: Any) {
         self.socket.emit("my_broadcast_event", ["event": "twitter"])
     }
     
-    @IBAction func reiwaEmit(_ sender: Any) {
+    func reiwaEmit(_ sender: Any) {
         self.socket.emit("my_broadcast_event", ["event": "reiwa"])
     }
     
@@ -48,9 +47,9 @@ class SensorViewController: UIViewController {
         motionManager.startDeviceMotionUpdates( to: OperationQueue.current!, withHandler:{
             deviceManager, error in            
             let gyro: CMRotationRate = deviceManager!.rotationRate
-            self.gyro_x.text = String(format: "%.2f", gyro.x)
-            self.gyro_y.text = String(format: "%.2f", gyro.y)
-            self.gyro_z.text = String(format: "%.2f", gyro.z)
+            self.gyro_x = gyro.x
+            self.gyro_y = gyro.y
+            self.gyro_z = gyro.z
             self.loop(angular: gyro.y)
         })
     }
@@ -64,7 +63,6 @@ class SensorViewController: UIViewController {
     }
     
     func loop(angular: Double){
-        self.degreeLabel.text = String(self.degree)
         self.degree += angular * 0.1 * 57.2
         if self.degree >= 90{
             self.socket.emit("my_broadcast_event", ["event": "news"])
